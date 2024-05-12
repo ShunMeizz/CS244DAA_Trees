@@ -56,7 +56,7 @@ class RedBlack{
         return currNode;
     }
 
-	void checkDoubleRed(node *x){
+    void checkDoubleRed(node *x){
         node *y = x->parent;
         node *z = y ? y->parent : nullptr;
         
@@ -77,29 +77,29 @@ class RedBlack{
 	void trinode_restructure(node *x, node *y, node *z){ // s is black
 		//perform trinode restructuring make b as black; a, c as red
 	     if((z->right==y )&& (y->right==x)){
-            cout<<" ZIGLEFT"<<endl;
+            	cout<<" ZIGLEFT"<<endl;
 	     	zigLeft(y, z, z->parent);
-            x->isRed = true;
-            y->isRed = false;
-		 }else if((z->left==y )&& (y->left==x)){
-            cout<<" ZIGRIGHT"<<endl;
+            	x->isRed = true;
+            	y->isRed = false;
+	     }else if((z->left==y )&& (y->left==x)){
+            	cout<<" ZIGRIGHT"<<endl;
 	     	zigRight(y, z, z->parent);
-             x->isRed = true;
-             y->isRed = false;
-		 }else if((z->right==y )&& (y->left==x)){
-            cout<<" ZIGZAGLEFT"<<endl;
+             	x->isRed = true;
+             	y->isRed = false;
+	     }else if((z->right==y )&& (y->left==x)){
+            	cout<<" ZIGZAGLEFT"<<endl;
 	     	zigRight(x, y, z);
-		 	zigLeft(x, z, z->parent);
-            x->isRed = false;
-            y->isRed = true;
-		 }else if((z->left==y )&& (y->right==x)){
-            cout<<" ZIGZAGRIGHT"<<endl;
-            zigLeft(x, y, z);
-            zigRight(x, z, z->parent);
-            x->isRed = false;
-            y->isRed = true;
-		 }   
-         z->isRed = true;    
+		zigLeft(x, z, z->parent);
+            	x->isRed = false;
+            	y->isRed = true;
+	     }else if((z->left==y )&& (y->right==x)){
+            	cout<<" ZIGZAGRIGHT"<<endl;
+            	zigLeft(x, y, z);
+            	zigRight(x, z, z->parent);
+            	x->isRed = false;
+            	y->isRed = true;
+	     }   
+         	z->isRed = true;    
 	}
     void recolor(node *y, node *z, node *s){
         if(s) {
@@ -115,7 +115,7 @@ class RedBlack{
         node * temp = n->left; //place to store parent
 
         //relinking
-		n->left = par;
+	n->left = par;
         par->parent = n;
         par->right = temp; // move the temp
 
